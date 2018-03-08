@@ -54,8 +54,8 @@ We want to give people the opportunity to know what places on Tufts campus (i.e.
 
 ## Wireframes ##
 
-![alt_text](Secondary_Homepage_1)
-![alt_text](Secondary_Homepage_2)
+![alt_text](2nd_hp_1)
+![alt_text](2nd_hp_2)
 
 
 
