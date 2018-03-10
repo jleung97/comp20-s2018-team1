@@ -8,9 +8,9 @@ We want to give people the opportunity to know what places on Tufts campus (i.e.
 
 * There are multiple ways we plan to approach this problem
 * Measuring network traffic.
-* Potential complications: 
-	* we need to catalogue the router number for each building that we are interested in tracking; specifically for Carm, it may be hard to distinguish between people in the dining hall vs. people in the residential area; 
-	* some people may use no internet device(s), while others may use multiple devices
+  	* Potential complications: 
+	  	* we need to catalogue the router number for each building that we are interested in tracking; specifically for Carm, it may be hard to distinguish between people in the dining hall vs. people in the residential area; 
+		* some people may use no internet device(s), while others may use multiple devices
 * Staff members count the numbers of people in a building (mainly libraries and labs)
 	* Create simple software that would allow staff to upload that data to us
 	* Potential complications:
@@ -40,7 +40,7 @@ We want to give people the opportunity to know what places on Tufts campus (i.e.
 	* How many people swiped in in the last hour?
 	* Approximately how long do people stay in the dining hall for?
 * Google’s busy API:
-
+  	* What are the popular times for this particular location?
 * All:
 	* How many people are at location x?
 	* What is the capacity of location x?
@@ -53,9 +53,15 @@ We want to give people the opportunity to know what places on Tufts campus (i.e.
 * Then compare current status to the thresholds
 
 ## Wireframes ##
-
-![alt_text](2nd_hp_1.png)
-![alt_text](2nd_hp_2.png)
-
+Option 1 for the homepage:
+![Option 1 for the homepage](hp.png)
+Option 2 for the homepage:
+![Option 2 for the homepage (1)](2nd_hp_1.png)
+![Option 2 for the homepage (2)](2nd_hp_2.png)
+Detail pages:
+![Carm](carm.png)
+![Dewick](dewick.png)
+![eaton](eaton.png)
+![gym](gym.png)
 
 
