@@ -62,6 +62,6 @@ Detail pages:
 ![Carm](carm.png)
 ![Dewick](dewick.png)
 ![eaton](eaton.png)
-![gym](gym.png)
+![Tisch](tisch.png)
 
 
