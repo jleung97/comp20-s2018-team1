@@ -64,4 +64,7 @@ Detail pages:
 ![eaton](eaton.png)
 ![Tisch](tisch.png)
 
-
+### Comments by Ming
+* Excellent problem
+* "How many unique IPs are on the network right now at each location?" => this will be tricky to do. Don't aim for accuracy, good enough is good enough.
+* Expand on your list of features, the "whats".  You alluded to a lot of this in the previous section
