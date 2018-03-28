@@ -51,7 +51,7 @@ busy_hours(place_id, key).then(data => {
 
  * The response variable "data" is in JSON:
 
- ```JSON
+ ```javascript
  {
     week: [
     {
