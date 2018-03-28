@@ -27,7 +27,7 @@ sudo arp-scan -l
 It will display who responded to our arp-scan and most likely a good estimate 
 of the number of unique ip addresses on the current network.
 
-![References](http://www.howtoeverything.net/linux/console-tricks/find-all-ips-and-mac-addresses-network)
+[References](http://www.howtoeverything.net/linux/console-tricks/find-all-ips-and-mac-addresses-network)
 
 ## Google API? ##
 
