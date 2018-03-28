@@ -54,15 +54,15 @@ We want to give people the opportunity to know what places on Tufts campus (i.e.
 
 ## Wireframes ##
 Option 1 for the homepage:
-![Option 1 for the homepage](hp.png)
+![Option 1 for the homepage](wireframe/hp.png)
 Option 2 for the homepage:
-![Option 2 for the homepage (1)](2nd_hp_1.png)
-![Option 2 for the homepage (2)](2nd_hp_2.png)
+![Option 2 for the homepage (1)](wireframe/2nd_hp_1.png)
+![Option 2 for the homepage (2)](wireframe/2nd_hp_2.png)
 Detail pages:
-![Carm](carm.png)
-![Dewick](dewick.png)
-![eaton](eaton.png)
-![Tisch](tisch.png)
+![Carm](wireframe/carm.png)
+![Dewick](wireframe/dewick.png)
+![eaton](wireframe/eaton.png)
+![Tisch](wireframe/tisch.png)
 
 ### Comments by Ming
 * Excellent problem
