@@ -5,5 +5,24 @@
 #options {
   margin-left: auto;
   margin-right: auto;
+}
+
+.location {
   border: 1px solid;
+  padding: 20px;
+}
+
+.snapshot {
+  margin:50px;
+  padding:10px;
+  border: 1px solid;
+}
+
+.check {
+  list-style: none;
+  padding-left: 0;
+}
+
+.check li:before {
+  content: "\2714\0020"; /* checkmark symbol */
 }
