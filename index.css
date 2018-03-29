@@ -7,14 +7,9 @@
   margin-right: auto;
 }
 
-.location {
-  border: 1px solid;
-  padding: 20px;
-}
-
 .snapshot {
   margin:50px;
-  padding:10px;
+  padding:20px;
   border: 1px solid;
 }
 
@@ -25,4 +20,8 @@
 
 .check li:before {
   content: "\2714\0020"; /* checkmark symbol */
+}
+
+img {
+  float: right;
 }
