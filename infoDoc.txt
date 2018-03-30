@@ -7,6 +7,14 @@ Carm & Dewick
 Tisch
   Tisch records the number of people in each room every 1-1.5 hours
   Reached out to William Bloom (Head of Access Services)--he’s discussing it with the appropriate staff members
+  
+Eaton Lab
+  Eaton Lab records the number of people in the lab every hour. The attendance sheet is renewed every Friday.
+  Reached out to manager of Eaton Lab. He is hesitant to give out the record.
+
+Ginn Library
+  Ginn records the number of people in the entire library every hour.
+  Reached out to the manager at Ginn. Waiting to hear back from the manager.
 
 Front end info
 
