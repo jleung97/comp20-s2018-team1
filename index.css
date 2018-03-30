@@ -1,16 +1,46 @@
 #name {
   text-align: center;
-}
-
-#options {
-  margin-left: auto;
-  margin-right: auto;
+  font-family: 'Julius Sans One';
+  font-size: 42px;
+  font-weight: bolder;
 }
 
 .snapshot {
-  margin:50px;
+  margin-left:30px;
+  margin-right:30px;
+  margin-top:20px;
+  margin-bottom:20px;
   padding:20px;
   border: 1px solid;
+  border-radius: 10px;
+  color: steelblue;
+}
+
+.snapshot:hover {
+  background: lightblue;
+}
+
+.location {
+  font-family: 'Julius Sans One';
+  font-size: 22px;
+  font-weight: bold;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.detail {
+  color: palevioletred;
+}
+
+figcaption {
+  color: palevioletred;
+}
+
+h3 {
+  color: black;
 }
 
 .check {
@@ -20,8 +50,4 @@
 
 .check li:before {
   content: "\2714\0020"; /* checkmark symbol */
-}
-
-img {
-  float: right;
 }
