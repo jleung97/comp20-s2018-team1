@@ -1,0 +1,11 @@
+Data gathering
+
+Carm & Dewick
+  Carm & Dewick record the number of people who have swiped in every 15 minutes
+  Reached out to Dining Services, they will get back to us soon
+
+Tisch
+  Tisch records the number of people in each room every 1-1.5 hours
+  Reached out to William Bloom (Head of Access Services)--he’s discussing it with the appropriate staff members
+
+Front end info
