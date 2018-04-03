@@ -1,0 +1,19 @@
+#dropdownMenu {
+  margin-top: 8px;
+  background-color: aliceblue;
+}
+
+#name {
+  font-family: 'Julius Sans One';
+  font-size: 42px;
+  font-weight: bolder;
+  padding: 1rem;
+}
+
+.emph {
+  font-weight: bold;
+}
+
+.row {
+  padding: 1rem;
+}

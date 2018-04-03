@@ -11,7 +11,7 @@
   margin-top:20px;
   margin-bottom:20px;
   padding:20px;
-  border: 1px solid;
+  border: 1px solid black;
   border-radius: 10px;
   color: steelblue;
 }
@@ -31,23 +31,10 @@ a, a:hover {
   color: black;
 }
 
-.detail {
-  color: palevioletred;
-}
-
 figcaption {
   color: palevioletred;
 }
 
 h3 {
   color: black;
-}
-
-.check {
-  list-style: none;
-  padding-left: 0;
-}
-
-.check li:before {
-  content: "\2714\0020"; /* checkmark symbol */
 }

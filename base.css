@@ -19,3 +19,17 @@ body {
 .navbar-nav li:hover {
   -webkit-transform: scale(1.2);
 }
+
+
+.detail {
+  color: palevioletred;
+}
+
+.check {
+  list-style: none;
+  padding-left: 0;
+}
+
+.check li:before {
+  content: "\2714\0020"; /* checkmark symbol */
+}
