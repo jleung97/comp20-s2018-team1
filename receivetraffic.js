@@ -7,6 +7,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/eaton_submit", function(req, res) {
+        response.setHeader("Access-Control-Allow-Origin", "*", false);
+        
         console.log("submitting " + req.body);
 
 
