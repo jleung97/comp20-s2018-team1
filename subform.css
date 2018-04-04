@@ -1,0 +1,14 @@
+body {
+        font-size: 24px;
+        font-family: "Verdana";
+}
+
+#submit {
+        width: 250px;
+        height: 100px;
+}
+
+#date {
+        font-size: 24px;
+        font-family: "Verdana";
+}
