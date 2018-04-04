@@ -7,7 +7,7 @@
   font-family: 'Julius Sans One';
   font-size: 42px;
   font-weight: bolder;
-  padding: 1rem;
+  padding-left: 2rem;
 }
 
 .emph {
@@ -15,5 +15,11 @@
 }
 
 .row {
-  padding: 1rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+figure {
+  display: block;
+  margin: auto;
 }

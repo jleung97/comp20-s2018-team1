@@ -20,11 +20,13 @@ body {
   -webkit-transform: scale(1.2);
 }
 
-
 .detail {
   color: palevioletred;
 }
 
+figcaption {
+  color: palevioletred;
+}
 .check {
   list-style: none;
   padding-left: 0;
