@@ -38,7 +38,7 @@ buttttt, most likely a violation against Google's policies
 
 ## Solution 2: busy-hours (as long as it is not against Google's policies) ##
 
-* There is an npm package that can scape Google's Places popular time data called [hours](https://www.npmjs.com/package/busy-hours)
+* There is an npm package that can scape Google's Places popular time data called [busy-hours](https://www.npmjs.com/package/busy-hours)
 * All you need is a place_id and an api key for Google Places API
 
 ```javascript
