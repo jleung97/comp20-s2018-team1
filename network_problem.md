@@ -72,5 +72,3 @@ busy_hours(place_id, key).then(data => {
       }
 }
 ```
-
-* Seems like a safer option than the github repo
