@@ -1,18 +1,8 @@
 const express = require('express')
 const path = require('path')
-var bodyParser = require('body-parser');
-var validator = requre('validator');
+const bodyParser = require('body-parser');
+const validator = require('validator');
 const PORT = process.env.PORT || 5000
-
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/semesterproj';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
@@ -20,7 +10,14 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
         db = databaseConnection;
 });
 
-  app.get('/times', function(req, res) {
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .get('/times', function(req, res) {
 
           db.collection('table', function(error, coll) {
 
@@ -36,9 +33,9 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
                           });
                   }
           });
-  });
+  })
 
-  app.post("/submit", function(req, res) {
+  .post("/submit", function(req, res) {
           response.setHeader("Access-Control-Allow-Origin", "*", false);
 
           console.log("submitting " + req.body);
@@ -180,13 +177,17 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 
 
           var toInsert = {
-                  "location": loc;
+                  "location": loc,
+                  "times" : []
+          };
 
-                  for(var i = 0; i < time_array.length; i++) {
-                          if(time_array[i] != null) {
+          for (var i = 0; i < time_array.length; i++) {
+                  if (time_array[i] != null) {
+                          var entry = {
                                   "timestamp": i,
-                                  "traffic": time_array[i];
-                          }
+                                  "traffic": time_array[i]
+                          };
+                          toInsert["times"].push(entry);
                   }
           }
 
@@ -203,11 +204,10 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
                                           res.send(500);
                                   }
                                   else {
-                                          res.send(<html><head><h2>Thanks for your submission!</h2></head></html>);
+                                          res.send("<html><head><h2>Thanks for your submission!</h2></head></html>");
                                   }
                           });
                   }
           });
-  });
-
-  app.listen(process.env.PORT || 8888);
+  })
+.listen(PORT, () => console.log(`Listening on ${ PORT }`))
