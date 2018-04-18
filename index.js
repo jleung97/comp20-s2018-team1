@@ -36,7 +36,7 @@ express()
   })
 
   .post("/submit", function(req, res) {
-          response.setHeader("Access-Control-Allow-Origin", "*", false);
+          res.setHeader("Access-Control-Allow-Origin", "*", false);
 
           console.log("submitting " + req.body);
 
@@ -48,129 +48,129 @@ express()
 
           //there has to be a way to make this more modular--any suggestions???
           if(req.body.tenAM != null) {
-                  time_array[10] = parseInt(req.body.tenAM);
+                  time_array[10] = req.body.tenAM;
 
-                  if(isNaN(tenAM)) {
+                  if(isNaN(req.body.tenAM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 10AM', type:'internal'});
                   }
           }
 
           if(req.body.elevenAM != null) {
-                  time_array[11] = parseInt(req.body.elevenAM);
+                  time_array[11] = req.body.elevenAM;
 
-                  if(isNaN(elevenAM)) {
+                  if(isNaN(req.body.elevenAM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 11AM', type:'internal'});
                   }
           }
 
           if(req.body.twelvePM != null) {
-                  time_array[12] = parseInt(req.body.twelvePM);
+                  time_array[12] = req.body.twelvePM;
 
-                  if(isNaN(twelvePM)) {
+                  if(isNaN(req.body.twelvePM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 12PM', type:'internal'});
                   }
           }
 
           if(req.body.onePM != null) {
-                  time_array[13] = parseInt(req.body.onePM);
+                  time_array[13] = req.body.onePM;
 
-                  if(isNaN(onePM)) {
+                  if(isNaN(req.body.onePM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 1PM', type:'internal'});
                   }
           }
 
           if(req.body.twoPM != null) {
-                  time_array[14] = parseInt(req.body.twoPM);
+                  time_array[14] = req.body.twoPM;
 
-                  if(isNaN(twoPM)) {
+                  if(isNaN(req.body.twoPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 2PM', type:'internal'});
                   }
           }
 
           if(req.body.threePM != null) {
-                  time_array[15] = parseInt(req.body.threePM);
+                  time_array[15] = req.body.threePM;
 
-                  if(isNaN(threePM)) {
+                  if(isNaN(req.body.threePM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 3PM', type:'internal'});
                   }
           }
 
           if(req.body.fourPM != null) {
-                  time_array[16] = parseInt(req.body.fourPM);
+                  time_array[16] = req.body.fourPM;
 
-                  if(isNaN(fourPM)) {
+                  if(isNaN(req.body.fourPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 4PM', type:'internal'});
                   }
           }
 
           if(req.body.fivePM != null) {
-                  time_array[17] = parseInt(req.body.fivePM);
+                  time_array[17] = req.body.fivePM;
 
-                  if(isNaN(fivePM)) {
+                  if(isNaN(req.body.fivePM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 5PM', type:'internal'});
                   }
           }
 
           if(req.body.sixPM != null) {
-                  time_array[18] = parseInt(req.body.sixPM);
+                  time_array[18] = req.body.sixPM;
 
-                  if(isNaN(sixPM)) {
+                  if(isNaN(req.body.sixPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 6PM', type:'internal'});
                   }
           }
 
           if(req.body.sevenPM != null) {
-                  time_array[19] = parseInt(req.body.sevenPM);
+                  time_array[19] = req.body.sevenPM;
 
-                  if(isNaN(sevenPM)) {
+                  if(isNaN(req.body.sevenPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 7PM', type:'internal'});
                   }
           }
 
           if(req.body.eightPM != null) {
-                  time_array[20] = parseInt(req.body.eightPM);
+                  time_array[20] = req.body.eightPM;
 
-                  if(isNaN(eightPM)) {
+                  if(isNaN(req.body.eightPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 8PM', type:'internal'});
                   }
           }
 
           if(req.body.ninePM != null) {
-                  time_array[21] = parseInt(req.body.ninePM);
+                  time_array[21] = req.body.ninePM;
 
-                  if(isNaN(ninePM)) {
+                  if(isNaN(req.body.ninePM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 9PM', type:'internal'});
                   }
           }
 
           if(req.body.tenPM != null) {
-                  time_array[22] = parseInt(req.body.tenPM);
+                  time_array[22] = req.body.tenPM;
 
-                  if(isNaN(tenPM)) {
+                  if(isNaN(req.body.tenPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 10PM', type:'internal'});
                   }
           }
 
           if(req.body.elevenPM != null) {
-                  time_array[23] = parseInt(req.body.elevenPM);
+                  time_array[23] = req.body.elevenPM;
 
-                  if(isNaN(elevenPM)) {
+                  if(isNaN(req.body.elevenPM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 11PM', type:'internal'});
                   }
           }
 
           if(req.body.twelveAM != null) {
-                  time_array[0] = parseInt(req.body.twelveAM);
+                  time_array[0] = req.body.twelveAM;
 
-                  if(isNaN(twelveAM)) {
+                  if(isNaN(req.body.twelveAM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 12AM', type:'internal'});
                   }
           }
 
           if(req.body.oneAM != null) {
-                  time_array[1] = parseInt(req.body.oneAM);
+                  time_array[1] = req.body.oneAM;
 
-                  if(isNaN(oneAM)) {
+                  if(isNaN(req.body.oneAM)) {
                           res.send(400, {status:400, message: 'Incorrect parameter for 1AM', type:'internal'});
                   }
           }
