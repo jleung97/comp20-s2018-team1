@@ -1,6 +1,10 @@
 var dining_container = document.getElementById('dining_info');
 var request = new XMLHttpRequest();
-var url = 'https://tuftsdiningdata.herokuapp.com/rmenus/dewick/20/4/2018'
+var dateObj = new Date();
+var month = dateObj.getMonth() + 1; //months from 1-12
+var day = dateObj.getDate();
+var year = dateObj.getFullYear();
+var url = 'https://tuftsdiningdata.herokuapp.com/rmenus/dewick/' + day + '/' + month + '/' + year;
 var menu = ''
 
 request.open("GET", url, true);
@@ -9,7 +13,9 @@ request.onreadystatechange = function() {
 	if (request.readyState == 4 && request.status == 200) {
 		response = request.responseText;
 		response = JSON.parse(response)['data'];
-		for (meal in response) {
+		var meals = ['Breakfast', 'Lunch', 'Dinner'];
+		for (i = 0; i < meals.length; i++) {
+			meal = meals[i];
 			menu += '<p class="meal">' + meal.toUpperCase() + '</p>';
 			for (category in response[meal]) {
 				menu += '<span class="category">' + toTitleCase(category) + '</span><ul>';
