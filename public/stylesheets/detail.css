@@ -32,19 +32,23 @@ figcaption {
 }
 
 .dropdown .dropdown-menu {
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 
-    max-height: 0;
-    display: block;
-    overflow: hidden;
-    opacity: 0;
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
 }
 
 .dropdown.open .dropdown-menu {
-    max-height: 300px;
-    opacity: 1;
+  max-height: 300px;
+  opacity: 1;
+}
+
+.meal {
+  font-weight: bold;  
 }
