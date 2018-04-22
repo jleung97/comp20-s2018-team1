@@ -17,3 +17,7 @@
     * Make pages more responsive
     * Render menu items with collapsible containers
     * Test and debug website
+    
+# Comments by Ming
+* "Create a fake data set and displaying that info " => I assume this from status report 2 was accomplished
+* "Trying to get MongoDB up and running with our submission form" => This needs to be done ASAP.
