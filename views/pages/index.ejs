@@ -79,6 +79,88 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script>
+    TThF_percentage = {7:5,8:20,9:20,10:40,11:50,12:60,13:50,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    MW_percentage = {7:5,8:20,9:20,10:40,11:50,12:90,13:60,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    Sa_percentage = {11:50,12:50,13:60,14:40,15:20,16:20,17:20,18:40,19:60,20:50,21:0}
+    Su_percentage = {8:5,9:20,10:30,11:40,12:50,13:50,14:40,15:20,16:20,17:20,18:50,19:70,20:0}
+    $( document ).ready(function() {
+      date = new Date();
+      var carm_close = document.getElementById("carm_timecloseData");
+      var carm_isItClosed = document.getElementById("carm_closed");
+      var carm_figcaption = document.getElementById("carm_figcaption");
+      var carm_percentage_num = 0;
+      var carm_percentage = document.getElementById("carm_percentageData");
+      var carm_bat_image = document.getElementById("carm_bat_image");
+      var day = date.getDay();
+      var hour = date.getHours();
+      if (day >= 1 && day <= 5) {
+        close.innerHTML = "8 PM";
+        if(day == 1 || day == 3) {
+          if(MW_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            percentage_num = MW_percentage[hour]
+            percentage.innerHTML = MW_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(TThF_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            percentage_num = TThF_percentage[hour]
+            percentage.innerHTML = TThF_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        close.innerHTML = "9 PM";
+        if(Su_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          percentage_num = Su_percentage[hour]
+          percentage.innerHTML = Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        close.innerHTML = "8 PM"
+        if(Sa_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          percentage_num = Sa_percentage[hour]
+          percentage = Sa_percentage[hour] + "%";
+        }
+      }
+      if(percentage_num >= 0 && percentage_num <= 20) {
+          bat_image.setAttribute("src","images/b1.png");
+          figcaption.innerHTML = "Not Busy";
+      }
+      else if(percentage_num > 20 && percentage_num <= 40) {
+          bat_image.setAttribute("src","images/b2.png");
+          figcaption.innerHTML = "Somewhat Busy";
+      }
+      else if(percentage_num > 40 && percentage_num <= 60) {
+          bat_image.setAttribute("src","images/b3.png");
+          figcaption.innerHTML = "Quite Busy";
+      }
+      else if(percentage_num > 60) {
+          bat_image.setAttribute("src","images/b4.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+    });
+
+  </script>
+
+
   <meta charset="UTF-8" />
   <link href='https://fonts.googleapis.com/css?family=Julius%20Sans%20One' rel='stylesheet'>
   <link rel="stylesheet" href="/stylesheets/index.css" />
@@ -124,14 +206,14 @@
           <div class="pull-left">
             <p class="location">Carmichael</p>
             <ul class="check">
-              <li>There are currently <span class="detail">xxx - xxx</span> people</li>
-              <li>People typically spend <span class="detail">yyy</span> minutes</li>
-              <li>Open until <span class="detail">zzz PM</span> today</li>
+               <li>Carmichael is currently <span id = "carm_percentageData" class="detail"></span> busy</li>
+               <li>People typically spend <span id = "carm_timespentData" class="detail">40</span> minutes</li>
+               <li id = "closed">Closes at <span id = "carm_timecloseData" class="detail"></span> today</li>
             </ul>
           </div>
           <figure class="pull-right">
-            <img src="/images/b2.png" alt="kinda busy" />
-            <figcaption class="text-center">Kinda Busy</figcaption>
+            <img id = "carm_bat_image" class="bat_img" alt="busy-battery" />
+            <figcaption id = "carm_figcaption"></figcaption>
           </figure>
         </div>
       </a>
