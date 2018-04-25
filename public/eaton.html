@@ -34,25 +34,25 @@
       var hour = date.getHours();
       if (day >= 1 && day <= 5) {
         close.innerHTML = "8 PM";
-        if(day == 1 || day == 3) {
-          if(MW_percentage[hour] == undefined) {
+        if(day == 5) {
+          if(F_percentage[hour] == undefined) {
             percentage.innerHTML = "0%";
             isItClosed.innerHTML = "This place is closed right now";
 
           }
           else {
-            percentage_num = MW_percentage[hour]
-            percentage.innerHTML = MW_percentage[hour] + "%";
+            percentage_num = F_percentage[hour]
+            percentage.innerHTML = F_percentage[hour] + "%";
           }
         }
         else {
-          if(TThF_percentage[hour] == undefined) {
+          if(MTWThF_percentage[hour] == undefined) {
             percentage.innerHTML = "0%";
             isItClosed.innerHTML = "This place is closed right now";
           }
           else {
-            percentage_num = TThF_percentage[hour]
-            percentage.innerHTML = TThF_percentage[hour] + "%";
+            percentage_num = MTWThF_percentage[hour]
+            percentage.innerHTML = MTWThF_percentage[hour] + "%";
           }
         }
       }
