@@ -21,6 +21,247 @@
   <link href='https://fonts.googleapis.com/css?family=Julius%20Sans%20One' rel='stylesheet'>
   <link rel="stylesheet" href="/stylesheets/detail.css" />
   <link rel="stylesheet" href="/stylesheets/base.css" />
+
+  <style>
+  #text {
+    display: block;
+    margin:0px auto;
+    width: 50%;
+  }
+  #container{
+    position: absolute;
+    top: 450px;
+    width :100%;
+    height: 20%;
+  }
+
+  #tufts_logo {
+    display: block;
+    margin: 0px auto;
+    margin-top:20px;
+    width: 25%;
+  }
+
+  #EMphotos{
+  display: block;
+  left: 0%;
+  top: 0%;
+  z-index: 0;
+  margin: auto;
+  max-width: 1000px;
+  width: 100%;
+  }
+    .flip-container{
+  /*border: 1px solid rgba(0, 0, 0, 0.3);*/
+  margin: 0;
+  padding: 0;
+  display: inline-grid;
+  position: relative;
+  height: 300px;
+  width: 25%;
+  float: left;
+  overflow: hidden;
+}
+
+.flip-container2{
+  /*border: 1px solid rgba(0, 0, 0, 0.3);*/
+  margin: 0;
+  padding: 0;
+  display: inline-grid;
+  position: relative;
+  height: 50%;
+  width: 25%;
+  float: left;
+  overflow: hidden;
+}
+
+.flip-container2:hover .indiphotos, .flip-container2.hover .indiphotos {
+    transform: rotateY(180deg);
+  }
+
+
+
+/* entire container, keeps perspective */
+.flip-container{
+
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .indiphotos, .flip-container.hover .indiphotos {
+    transform: rotateY(180deg);
+  }
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+}
+
+/* flip speed goes here */
+.indiphotos {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+  background-color: white;
+  color: black;
+  padding: 3%;
+  font-weight: 400;
+  font-size: .8vw;
+}
+
+.red{
+  border: 7px solid rgb(239, 83, 80);
+}
+
+.blue{
+  border: 7px solid rgb(66, 165, 245);
+}
+
+.name{
+  color:black;
+  font-size: 1.5vw;
+  font-weight: 100;
+}
+
+.position{
+  color: black;
+  font-size: 1.5vw;
+  position: absolute;
+  top: 90%;
+  font-weight: 100;
+}
+
+.EBPhoto{
+  min-width: 100%;
+  height:100%;
+  position: absolute;
+  display: block;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+}
+/********************************************************/
+
+
+/*-----------------------------------
+# Media Queries
+------------------------------------*/
+/*-----------------------------------
+## Wide Screens, Large Devices
+------------------------------------*/
+@media only screen and (max-width : 1700px) {
+    
+  .back{
+    font-size: 1.15vw;
+    padding: 5%;
+  }
+
+}
+/*-----------------------------------
+## Desktops, Medium Devices
+------------------------------------*/
+@media only screen and (max-width : 1100px)  {
+  
+  .back{
+    font-size: 1.40vw;
+    padding: 10%;
+  }
+}
+/*-----------------------------------
+## Tablets, Small Devices
+------------------------------------*/
+@media only screen and (max-width : 768px)  {
+  
+  .kevin {
+    left: 33%;
+  }
+
+  .back{
+    font-size: 2vw;
+    padding: 5%;
+  }
+  
+  .flip-container{
+    height: 250px;
+    width: 33%;
+  }
+  
+  .flip-container2{
+    height: 250px;
+    width: 33%;
+  }
+  
+  #EMphotos{
+    z-index: 1000;
+    height: 900px;
+  }
+  #container{
+    top: 750px;
+  }
+  
+}
+/*-----------------------------------
+## Phones, Extra Small Devices
+------------------------------------*/
+@media only screen and (max-width: 480px) {
+  
+  .kevin {
+    left: 0%;
+  }
+
+  #EMphotos{
+    height: 850px;
+  }
+  .flip-container{
+    height: 200px;
+    width: 50%;
+  }
+  
+  .flip-container2{
+    height: 200px;
+    width: 50%;
+  }
+  
+  .name{
+    font-size:3vw;
+  }
+  
+  .position{
+    font-size:3vw;
+  }
+  
+  .back{
+    font-size: 2.7vw;
+    padding: 2%;
+  }
+  #container{
+    top: 650px;
+  }
+  
+}
+
+  </style>
 </head>
 
 <body>
@@ -36,37 +277,40 @@
       </div>
     </nav>
 
-    <h1 id="name">BUSY MONITOR</h1>  
+    <h1 id="name">ABOUT US</h1>  
+    <div id = "EMphotos">
+      <div class = flip-container ontouchstart="this.classList.toggle('hover');">
+        <div class = indiphotos>
+          <div class = front><img class = EBPhoto id = leo src = "images/jl.jpg"></div>
+          <div class = "back red"><h1 class = name>Jennifer Leung</h1><br><br><br><br><hi class = position></hi></div>
+        </div>
+      </div>
+      <div class = flip-container ontouchstart="this.classList.toggle('hover');">
+        <div class = indiphotos>
+          <div class = front><img class = EBPhoto src = "images/jp.png"></div>
+          <div class = "back blue"><h1 class = name>Jasper Park</h1><br><br><br><hi class = position></hi></div>
+        </div>
+      </div>
+      <div class = flip-container ontouchstart="this.classList.toggle('hover');">
+        <div class = indiphotos>
+          <div class = front><img class = EBPhoto src = "images/mf.jpg"></div>
+          <div class = "back red"><h1 class = name>Michelle Feng</h1><br><br><br><br><hi class = position></hi></div>
+        </div>
+      </div>
+      <div class = "flip-container kevin" ontouchstart="this.classList.toggle('hover');">
+        <div class = indiphotos>
+          <div class = front><img class = EBPhoto src = "images/kb.jpg"></div>
+          <div class = "back blue"><h1 class = name>Kevin Bae</h1><br>Majoring in Computer Science<br>From Norwood, NJ<br>Loves trying new restaurants<br>Wants to become a Software Engineer or Cyber Security Engineer<br><br><hi class = position>Class of 2020</hi></div>
+        </div>
+      </div>
+    </div>
 
-    <p id="text">Busy Monitor informs students on how busy key campus locations are by tracking their live network traffic. The application was created by Kevin Bae, Michelle Feng, Jennifer Leung, and Jasper Park, as part of a COMP 20 group project.<br><br>
-      <img src="/images/tufts-logo.png" alt="Tufs Logo" />
+    <div id = container><p id="text">Busy Monitor informs students on how busy key campus locations are by tracking their live network traffic. The application was created by Kevin Bae, Michelle Feng, Jennifer Leung, and Jasper Park, as part of a COMP 20 group project.<br><br>
     </p>
-
-
-    <div class = flip-container ontouchstart="this.classList.toggle('hover');">
-      <div class = indiphotos>
-        <div class = front><img class = EBPhoto id = leo src = "images/jl.png"></div>
-        <div class = "back red"><h1 class = name>Gill Eun Kang</h1><br>Majoring in Economics and Philosophy<br>From Seoul, South Korea<br>Loves Ganjang Gaejang<br>Class of 2018<br><br><hi class = position>President</hi></div>
-      </div>
+    <img src="/images/tufts-logo.png" alt="Tufs Logo" id = tufts_logo />
     </div>
-    <div class = flip-container ontouchstart="this.classList.toggle('hover');">
-      <div class = indiphotos>
-        <div class = front><img class = EBPhoto src = "images/jp.png"></div>
-        <div class = "back blue"><h1 class = name>Kun Woo (Kevin) Lee</h1><br>Majoring in Biopsychology and Philosophy<br>From Irvine, CA<br>Loves samggyupsal<br>Class of 2019<br><br><hi class = position>Vice President</hi></div>
-      </div>
-    </div>
-    <div class = flip-container ontouchstart="this.classList.toggle('hover');">
-      <div class = indiphotos>
-        <div class = front><img class = EBPhoto src = "images/mf.png"></div>
-        <div class = "back red"><h1 class = name>Dennis Kim</h1><br>Majoring in Cognitive Brain Science<br>From Clarksville, MD<br>Loves Jjajangmyun<br>Class of 2018<br><br><hi class = position>Senior Advisor</hi></div>
-      </div>
-    </div>
-    <div class = flip-container ontouchstart="this.classList.toggle('hover');">
-      <div class = indiphotos>
-        <div class = front><img class = EBPhoto src = "images/kb.jpg"></div>
-        <div class = "back red"><h1 class = name>Justin Jo</h1><br>Majoring in Computer Engineering<br>From San Rafael, CA<br>Loves soondubu<br>Class of 2018<br><br><hi class = position>PAC Rep.</hi></div>
-      </div>
-    </div>
+    
+    
 
 
 </body>
