@@ -108,7 +108,11 @@
           bat_image.setAttribute("src","images/b3.png");
           figcaption.innerHTML = "Quite Busy";
       }
-      else if(percentage_num > 60) {
+      else if(percentage_num > 60 && percentage_num <= 80) {
+          bat_image.setAttribute("src","images/b3.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+      else if(percentage_num > 80) {
           bat_image.setAttribute("src","images/b4.png");
           figcaption.innerHTML = "Very Busy";
       }
