@@ -90,18 +90,22 @@
         }
       }
       if(percentage_num >= 0 && percentage_num <= 20) {
-          bat_image.setAttribute("src","images/b1.png");
+          bat_image.setAttribute("src","images/b0.png");
           figcaption.innerHTML = "Not Busy";
       }
       else if(percentage_num > 20 && percentage_num <= 40) {
-          bat_image.setAttribute("src","images/b2.png");
+          bat_image.setAttribute("src","images/b1.png");
           figcaption.innerHTML = "Somewhat Busy";
       }
       else if(percentage_num > 40 && percentage_num <= 60) {
-          bat_image.setAttribute("src","images/b3.png");
+          bat_image.setAttribute("src","images/b2.png");
           figcaption.innerHTML = "Quite Busy";
       }
-      else if(percentage_num > 60) {
+      else if(percentage_num > 60 && percentage_num <= 80) {
+          bat_image.setAttribute("src","images/b3.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+      else if(percentage_num > 80) {
           bat_image.setAttribute("src","images/b4.png");
           figcaption.innerHTML = "Very Busy";
       }
