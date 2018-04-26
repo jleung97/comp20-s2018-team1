@@ -33,8 +33,14 @@
       var day = date.getDay();
       var hour = date.getHours();
       if (day >= 1 && day <= 5) {
-        close.innerHTML = "8 PM";
         if(day == 5) {
+          if(hour >= 4) {
+            close.innerHTML = "8 PM";
+          }
+          else {
+            close.innerHTML = "4 AM";
+          }
+          
           if(F_percentage[hour] == undefined) {
             percentage.innerHTML = "0%";
             isItClosed.innerHTML = "This place is closed right now";
@@ -57,7 +63,7 @@
         }
       }
       else if (day == 0) {
-        close.innerHTML = "9 PM";
+        close.innerHTML = "4 AM";
         if(Su_percentage[hour] == undefined) {
           percentage.innerHTML = "0%";
           isItClosed.innerHTML = "This place is closed right now";
@@ -68,7 +74,7 @@
         }
       }
       else {
-        close.innerHTML = "8 PM"
+        close.innerHTML = "5 PM"
         if(Sa_percentage[hour] == undefined) {
           percentage.innerHTML = "0%";
           isItClosed.innerHTML = "This place is closed right now";
@@ -131,7 +137,7 @@
     <div class="col-md-4">
       <span class="emph">Overview:</span><br>
       <ul class="check">
-        <li>Carmichael is currently <span id = "percentageData" class="detail"></span> busy</li>
+        <li>Eaton is currently <span id = "percentageData" class="detail"></span> busy</li>
         <li>People typically spend <span id = "timespentData" class="detail"90</span> minutes</li>
         <li id = "closed">Closes at <span id = "timecloseData" class="detail"></span> today</li>
       </ul>

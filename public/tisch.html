@@ -15,6 +15,100 @@
   <link href='https://fonts.googleapis.com/css?family=Julius%20Sans%20One' rel='stylesheet'>
   <link rel="stylesheet" href="/stylesheets/detail.css" />
   <link rel="stylesheet" href="/stylesheets/base.css" />
+
+  <!-- Make the website fully responsive -->
+  <link rel="stylesheet" href="stylesheets/responsive.css">
+
+  <!-- Phone Responsive Meta Tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    MTWTh_percentage = {0:20,1:10,2:5,3:0,7:5,8:5,9:10,10:30,11:50,12:60,13:50,14:40,15:30,16:30,17:40,18:55,19:70,20:60,21:50,22:60,23:30,24:20}
+    F_percentage = {0:20,1:10,2:5,3:0,7:5,8:5,9:10,10:20,11:40,12:30,13:40,14:40,15:20,16:30,17:20,18:20,19:10,20:20,21:20,22:20,23:10,24:0}
+    Sa_percentage = {10:10,11:20,12:40,13:50,14:40,15:20,16:10,17:10,18:55,19:50,20:30,21:50,22:40,23:30,24:0}
+    Su_percentage = {10:1,11:20,12:20,13:40,14:40,15:50,16:40,17:30,18:50,19:70,20:70,21:60,22:60,23:60,24:40}
+    $( document ).ready(function() {
+      date = new Date();
+      var close = document.getElementById("timecloseData");
+      var isItClosed = document.getElementById("closed");
+      var figcaption = document.getElementById("figcaption");
+      var percentage_num = 0;
+      var percentage = document.getElementById("percentageData");
+      var bat_image = document.getElementById("bat_image");
+      var day = date.getDay();
+      var hour = date.getHours();
+      if (day >= 1 && day <= 5) {
+        close.innerHTML = "3 AM";
+        if(day == 5) {
+          if(hour >=3) {
+            close.innerHTML = "12 PM"
+          }
+          else {
+            close.innerHTML = "3 AM";
+          }
+          if(F_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            percentage_num = F_percentage[hour]
+            percentage.innerHTML = F_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(MTWTh_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            percentage_num = MTWTh_percentage[hour]
+            percentage.innerHTML = MTWTh_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        close.innerHTML = "3 AM";
+        if(Su_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          percentage_num = Su_percentage[hour]
+          percentage.innerHTML = Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        close.innerHTML = "12 PM"
+        if(Sa_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          percentage_num = Sa_percentage[hour]
+          percentage = Sa_percentage[hour] + "%";
+        }
+      }
+      if(percentage_num >= 0 && percentage_num <= 20) {
+          bat_image.setAttribute("src","images/b1.png");
+          figcaption.innerHTML = "Not Busy";
+      }
+      else if(percentage_num > 20 && percentage_num <= 40) {
+          bat_image.setAttribute("src","images/b2.png");
+          figcaption.innerHTML = "Somewhat Busy";
+      }
+      else if(percentage_num > 40 && percentage_num <= 60) {
+          bat_image.setAttribute("src","images/b3.png");
+          figcaption.innerHTML = "Quite Busy";
+      }
+      else if(percentage_num > 60) {
+          bat_image.setAttribute("src","images/b4.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+    });
+
+  </script>
+
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -44,9 +138,9 @@
     <div class="col-md-4">
       <span class="emph">Overview:</span><br>
       <ul class="check">
-        <li>There are currently <span class="detail">xxx - xxx</span> people in Tisch Library</li>
-        <li>People typically spend <span class="detail">yyy</span> minutes</li>
-        <li>Open until <span class="detail">zzz PM</span> today</li>
+        <li>Tisch is currently <span id = "percentageData" class="detail"></span> busy</li>
+        <li>People typically spend <span id = "timespentData" class="detail"120</span> minutes</li>
+        <li id = "closed">Closes at <span id = "timecloseData" class="detail"></span> today</li>
       </ul>
       <br>
       <span class="emph">Hours of Operation:</span><br>
@@ -63,8 +157,8 @@
   <div class="row">
     <div class="col-md-4">
       <figure>
-        <img class="bat_img" src="/images/b3.png" alt="quite busy" />
-        <figcaption>Quite Busy</figcaption>
+        <img id = "bat_image" class="bat_img" alt="busy-battery" />
+        <figcaption id = "figcaption"></figcaption>
       </figure>
     </div>
   </div>
