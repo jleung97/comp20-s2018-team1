@@ -93,6 +93,5 @@ else {
 					]
       }
 
- console.log(options);
 $("#chartContainer").CanvasJSChart(options);
 }
