@@ -79,6 +79,359 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script>
+
+    /********************* TIME ARRAYS ***************/
+    carm_TThF_percentage = {7:5,8:20,9:20,10:40,11:50,12:60,13:50,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    carm_MW_percentage = {7:5,8:20,9:20,10:40,11:50,12:90,13:60,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    carm_Sa_percentage = {11:50,12:50,13:60,14:40,15:20,16:20,17:20,18:40,19:60,20:50,21:0}
+    carm_Su_percentage = {8:5,9:20,10:30,11:40,12:50,13:50,14:40,15:20,16:20,17:20,18:50,19:70,20:0}
+    eaton_MTWTh_percentage = {0:20,1:20,2:15,3:15,4:10,9:10,10:30,11:50,12:60,13:50,14:40,15:20,16:20,17:20,18:55,19:70,20:30,21:50,22:60,23:30,24:20}
+    eaton_F_percentage = {0:20,1:20,2:15,3:15,4:10,9:10,10:20,11:40,12:60,13:50,14:40,15:20,16:30,17:20,18:20,19:10,20:10}
+    eaton_Sa_percentage = {10:10,11:20,12:40,13:60,14:40,15:20,16:10,17:10}
+    eaton_Su_percentage = {12:20,13:40,14:40,15:50,16:40,17:30,18:50,19:70,20:30,21:40,22:50,23:30,24:20}
+    tisch_MTWTh_percentage = {0:20,1:10,2:5,3:0,7:5,8:5,9:10,10:30,11:50,12:60,13:50,14:40,15:30,16:30,17:40,18:55,19:70,20:60,21:50,22:60,23:30,24:20}
+    tisch_F_percentage = {0:20,1:10,2:5,3:0,7:5,8:5,9:10,10:20,11:40,12:30,13:40,14:40,15:20,16:30,17:20,18:20,19:10,20:20,21:20,22:20,23:10,24:0}
+    tisch_Sa_percentage = {10:10,11:20,12:40,13:50,14:40,15:20,16:10,17:10,18:55,19:50,20:30,21:50,22:40,23:30,24:0}
+    tisch_Su_percentage = {10:1,11:20,12:20,13:40,14:40,15:50,16:40,17:30,18:50,19:70,20:70,21:60,22:60,23:60,24:40}
+    dewick_TTh_percentage = {7:5,8:20,9:20,10:40,11:50,12:60,13:50,14:40,15:30,16:20,17:40,18:55,19:70,20:30,21:0}
+    dewick_MW_percentage = {7:5,8:20,9:20,10:40,11:50,12:90,13:60,14:40,15:40,16:30,17:30,18:55,19:70,20:40,21:0}
+    dewick_F_percentage = {7:5,8:20,9:20,10:40,11:50,12:60,13:50,14:40,15:30,16:20,17:40,18:55,19:60,20:0}
+    dewick_Sa_percentage = {8:10,9:10,10:15,11:50,12:50,13:60,14:40,15:20,16:20,17:20,18:40,19:60,20:0}
+    dewick_Su_percentage = {11:40,12:50,13:50,14:40,15:20,16:20,17:20,18:50,19:70,20:40,21:0}
+    $( document ).ready(function() {
+
+      /************ DATE VARIABLES **************/
+      date = new Date();
+      var day = date.getDay();
+      var hour = date.getHours();
+
+      /**************** HTML ELEMENT VARIABLES ************/
+      var carm_close = document.getElementById("carm_timecloseData");
+      var carm_isItClosed = document.getElementById("carm_closed");
+      var carm_figcaption = document.getElementById("carm_figcaption");
+      var carm_percentage_num = 0;
+      var carm_percentage = document.getElementById("carm_percentageData");
+      var carm_bat_image = document.getElementById("carm_bat_image");
+      var eaton_close = document.getElementById("eaton_timecloseData");
+      var eaton_isItClosed = document.getElementById("eaton_closed");
+      var eaton_figcaption = document.getElementById("eaton_figcaption");
+      var eaton_percentage_num = 0;
+      var eaton_percentage = document.getElementById("eaton_percentageData");
+      var eaton_bat_image = document.getElementById("eaton_bat_image");
+      var tisch_close = document.getElementById("tisch_timecloseData");
+      var tisch_isItClosed = document.getElementById("tisch_closed");
+      var tisch_figcaption = document.getElementById("tisch_figcaption");
+      var tisch_percentage_num = 0;
+      var tisch_percentage = document.getElementById("tisch_percentageData");
+      var tisch_bat_image = document.getElementById("tisch_bat_image");
+      var dewick_close = document.getElementById("dewick_timecloseData");
+      var dewick_isItClosed = document.getElementById("dewick_closed");
+      var dewick_figcaption = document.getElementById("dewick_figcaption");
+      var dewick_percentage_num = 0;
+      var dewick_percentage = document.getElementById("dewick_percentageData");
+      var dewick_bat_image = document.getElementById("dewick_bat_image");
+
+      /***************** CARM *****************/
+      if (day >= 1 && day <= 5) {
+        carm_close.innerHTML = "8 PM";
+        if(day == 1 || day == 3) {
+          if(carm_MW_percentage[hour] == undefined) {
+            carm_percentage.innerHTML = "0%";
+            carm_isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            carm_percentage_num = carm_MW_percentage[hour]
+            carm_percentage.innerHTML = carm_MW_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(carm_TThF_percentage[hour] == undefined) {
+            carm_percentage.innerHTML = "0%";
+            carm_isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            carm_percentage_num = carm_TThF_percentage[hour]
+            carm_percentage.innerHTML = carm_TThF_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        carm_close.innerHTML = "9 PM";
+        if(carm_Su_percentage[hour] == undefined) {
+          carm_percentage.innerHTML = "0%";
+          carm_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          carm_percentage_num = carm_Su_percentage[hour]
+          carm_percentage.innerHTML = carm_Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        carm_close.innerHTML = "8 PM"
+        if(carm_Sa_percentage[hour] == undefined) {
+          carm_percentage.innerHTML = "0%";
+          carm_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          carm_percentage_num = carm_Sa_percentage[hour]
+          carm_percentage = carm_Sa_percentage[hour] + "%";
+        }
+      }
+      if(carm_percentage_num >= 0 && carm_percentage_num <= 20) {
+          carm_bat_image.setAttribute("src","images/b0.png");
+          carm_figcaption.innerHTML = "Not Busy";
+      }
+      else if(carm_percentage_num > 20 && carm_percentage_num <= 40) {
+          carm_bat_image.setAttribute("src","images/b1.png");
+          carm_figcaption.innerHTML = "Kinda Busy";
+      }
+      else if(carm_percentage_num > 40 && carm_percentage_num <= 60) {
+          carm_bat_image.setAttribute("src","images/b2.png");
+          carm_figcaption.innerHTML = "Quite Busy";
+      }
+      else if(carm_percentage_num > 60 && carm_percentage_num <= 80) {
+          carm_bat_image.setAttribute("src","images/b3.png");
+          carm_figcaption.innerHTML = "Very Busy";
+      }
+      else if(carm_percentage_num > 80) {
+          carm_bat_image.setAttribute("src","images/b4.png");
+          carm_figcaption.innerHTML = "Extremely Busy";
+      }
+
+      /************** EATON ************/
+      if (day >= 1 && day <= 5) {
+        if(day == 5) {
+          if(hour >= 4) {
+            eaton_close.innerHTML = "8 PM";
+          }
+          else {
+            eaton_close.innerHTML = "4 AM";
+          }
+          
+          if(eaton_F_percentage[hour] == undefined) {
+            eaton_percentage.innerHTML = "0%";
+            eaton_isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            eaton_percentage_num = eaton_F_percentage[hour]
+            eaton_percentage.innerHTML = eaton_F_percentage[hour] + "%";
+          }
+        }
+        else {
+          eaton_close.innerHTML = "4 AM";
+          if(eaton_MTWTh_percentage[hour] == undefined) {
+            eaton_percentage.innerHTML = "0%";
+            eaton_isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            eaton_percentage_num = eaton_MTWTh_percentage[hour]
+            eaton_percentage.innerHTML = eaton_MTWTh_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        eaton_close.innerHTML = "4 AM";
+        if(eaton_Su_percentage[hour] == undefined) {
+          eaton_percentage.innerHTML = "0%";
+          eaton_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          eaton_percentage_num = eaton_Su_percentage[hour]
+          eaton_percentage.innerHTML = eaton_Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        eaton_close.innerHTML = "5 PM"
+        if(eaton_Sa_percentage[hour] == undefined) {
+          eaton_percentage.innerHTML = "0%";
+          eaton_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          eaton_percentage_num = eaton_Sa_percentage[hour]
+          eaton_percentage = eaton_Sa_percentage[hour] + "%";
+        }
+      }
+      if(eaton_percentage_num >= 0 && eaton_percentage_num <= 20) {
+          eaton_bat_image.setAttribute("src","images/b0.png");
+          eaton_figcaption.innerHTML = "Not Busy";
+      }
+      else if(eaton_percentage_num > 20 && eaton_percentage_num <= 40) {
+          eaton_bat_image.setAttribute("src","images/b1.png");
+          eaton_figcaption.innerHTML = "Kinda Busy";
+      }
+      else if(eaton_percentage_num > 40 && eaton_percentage_num <= 60) {
+          eaton_bat_image.setAttribute("src","images/b2.png");
+          eaton_figcaption.innerHTML = "Quite Busy";
+      }
+      else if(eaton_percentage_num > 60 && eaton_percentage_num <= 80) {
+          eaton_bat_image.setAttribute("src","images/b3.png");
+          eaton_figcaption.innerHTML = "Very Busy";
+      }
+      else if(eaton_percentage_num > 80) {
+          eaton_bat_image.setAttribute("src","images/b4.png");
+          eaton_figcaption.innerHTML = "Extremely Busy";
+      }
+
+      /******************* TISCH ****************/
+      if (day >= 1 && day <= 5) {
+        tisch_close.innerHTML = "3 AM";
+        if(day == 5) {
+          if(hour >=3) {
+            tisch_close.innerHTML = "12 PM"
+          }
+          else {
+            close.innerHTML = "3 AM";
+          }
+          if(tisch_F_percentage[hour] == undefined) {
+            tisch_percentage.innerHTML = "0%";
+            tisch_isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            tisch_percentage_num = tisch_F_percentage[hour]
+            tisch_percentage.innerHTML = tisch_F_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(tisch_MTWTh_percentage[hour] == undefined) {
+            tisch_percentage.innerHTML = "0%";
+            tisch_isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            tisch_percentage_num = tisch_MTWTh_percentage[hour]
+            tisch_percentage.innerHTML = tisch_MTWTh_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        tisch_close.innerHTML = "3 AM";
+        if(tisch_Su_percentage[hour] == undefined) {
+          tisch_percentage.innerHTML = "0%";
+          tisch_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          tisch_percentage_num = tisch_Su_percentage[hour]
+          tisch_percentage.innerHTML = tisch_Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        tisch_close.innerHTML = "12 PM"
+        if(tisch_Sa_percentage[hour] == undefined) {
+          tisch_percentage.innerHTML = "0%";
+          tisch_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          tisch_percentage_num = tisch_Sa_percentage[hour]
+          tisch_percentage = tisch_Sa_percentage[hour] + "%";
+        }
+      }
+      if(tisch_percentage_num >= 0 && tisch_percentage_num <= 20) {
+          tisch_bat_image.setAttribute("src","images/b0.png");
+          tisch_figcaption.innerHTML = "Not Busy";
+      }
+      else if(tisch_percentage_num > 20 && tisch_percentage_num <= 40) {
+          tisch_bat_image.setAttribute("src","images/b1.png");
+          tisch_figcaption.innerHTML = "Kinda Busy";
+      }
+      else if(tisch_percentage_num > 40 && tisch_percentage_num <= 60) {
+          tisch_bat_image.setAttribute("src","images/b2.png");
+          tisch_figcaption.innerHTML = "Quite Busy";
+      }
+      else if(tisch_percentage_num > 60 && tisch_percentage_num <= 80) {
+          tisch_bat_image.setAttribute("src","images/b3.png");
+          tisch_figcaption.innerHTML = "Very Busy";
+      }
+      else if(tisch_percentage_num > 80) {
+          tisch_bat_image.setAttribute("src","images/b4.png");
+          _figcaption.innerHTML = "Extremely Busy";
+      }
+
+      /********************* DEWICK ********************/
+       if (day >= 1 && day <= 4) {
+        dewick_close.innerHTML = "9 PM";
+        if(day == 1 || day == 3) {
+          if(dewick_MW_percentage[hour] == undefined) {
+            dewick_percentage.innerHTML = "0%";
+            dewick_isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            dewick_percentage_num = dewick_MW_percentage[hour]
+            dewick_percentage.innerHTML = dewick_MW_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(dewick_TTh_percentage[hour] == undefined) {
+            dewick_percentage.innerHTML = "0%";
+            dewick_isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            dewick_percentage_num = dewick_TTh_percentage[hour]
+            dewick_percentage.innerHTML = dewick_TTh_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 5) {
+        dewick_close.innerHTML = "8PM";
+        if(dewick_F_percentage[hour] == undefined) {
+            dewick_percentage.innerHTML = "0%";
+            dewick_isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            dewick_percentage_num = dewick_F_percentage[hour]
+            dewick_percentage.innerHTML = dewick_F_percentage[hour] + "%";
+          }
+      }
+      else if (day == 0) {
+        dewick_close.innerHTML = "9 PM";
+        if(dewick_Su_percentage[hour] == undefined) {
+          dewick_percentage.innerHTML = "0%";
+          dewick_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          dewick_percentage_num = dewick_Su_percentage[hour]
+          dewick_percentage.innerHTML = dewick_Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        dewick_close.innerHTML = "8 PM"
+        if(dewick_Sa_percentage[hour] == undefined) {
+          dewick_percentage.innerHTML = "0%";
+          dewick_isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          dewick_percentage_num = dewick_Sa_percentage[hour]
+          dewick_percentage = dewick_Sa_percentage[hour] + "%";
+        }
+      }
+      if(dewick_percentage_num >= 0 && dewick_percentage_num <= 20) {
+          dewick_bat_image.setAttribute("src","images/b0.png");
+          dewick_figcaption.innerHTML = "Not Busy";
+      }
+      else if(dewick_percentage_num > 20 && dewick_percentage_num <= 40) {
+          dewick_bat_image.setAttribute("src","images/b1.png");
+          dewick_figcaption.innerHTML = "Kinda Busy";
+      }
+      else if(dewick_percentage_num > 40 && dewick_percentage_num <= 60) {
+          dewick_bat_image.setAttribute("src","images/b2.png");
+          dewick_figcaption.innerHTML = "Quite Busy";
+      }
+      else if(dewick_percentage_num > 60 && dewick_percentage_num <= 80) {
+          dewick_bat_image.setAttribute("src","images/b3.png");
+          dewick_figcaption.innerHTML = "Very Busy";
+      }
+      else if(dewick_percentage_num > 80) {
+          dewick_bat_image.setAttribute("src","images/b4.png");
+          dewick_figcaption.innerHTML = "Extremely Busy";
+      }
+    });
+
+  </script>
+
+
   <meta charset="UTF-8" />
   <link href='https://fonts.googleapis.com/css?family=Julius%20Sans%20One' rel='stylesheet'>
   <link rel="stylesheet" href="/stylesheets/index.css" />
@@ -89,9 +442,9 @@
     <div class="container text-center">
       <div id="navbar" class="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="about.html">About</a></li>
+          <li class="active"><a href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -106,32 +459,32 @@
           <div class="pull-left">
             <p class="location">Dewick</p>
             <ul class="check">
-              <li>There are currently <span class="detail">xxx - xxx</span> people</li>
-              <li>People typically spend <span class="detail">yyy</span> minutes</li>
-              <li>Open until <span class="detail">zzz PM</span> today</li>
+              <li>Dewick is currently <span id = "dewick_percentageData" class="detail"></span> busy</li>
+               <li>People typically spend <span id = "dewick_timespentData" class="detail">40</span> minutes</li>
+               <li id = "dewick_closed">Closes at <span id = "dewick_timecloseData" class="detail"></span> today</li>
             </ul>
           </div>
           <figure class="pull-right">
-            <img src="/images/b3.png" alt="quite busy" />
-            <figcaption class="text-center">Quite Busy</figcaption>
+            <img id = "dewick_bat_image" class="bat_img" alt="busy-battery" />
+            <figcaption id = "dewick_figcaption"></figcaption>
           </figure>
         </div>
       </a>
     </div>
     <div class="col-md-6">
-      <a href="#">
+      <a href="carmichael.html">
         <div class="snapshot clearfix">
           <div class="pull-left">
             <p class="location">Carmichael</p>
             <ul class="check">
-              <li>There are currently <span class="detail">xxx - xxx</span> people</li>
-              <li>People typically spend <span class="detail">yyy</span> minutes</li>
-              <li>Open until <span class="detail">zzz PM</span> today</li>
+               <li>Carmichael is currently <span id = "carm_percentageData" class="detail"></span> busy</li>
+               <li>People typically spend <span id = "carm_timespentData" class="detail">40</span> minutes</li>
+               <li id = "carm_closed">Closes at <span id = "carm_timecloseData" class="detail"></span> today</li>
             </ul>
           </div>
           <figure class="pull-right">
-            <img src="/images/b2.png" alt="kinda busy" />
-            <figcaption class="text-center">Kinda Busy</figcaption>
+            <img id = "carm_bat_image" class="bat_img" alt="busy-battery" />
+            <figcaption id = "carm_figcaption"></figcaption>
           </figure>
         </div>
       </a>
@@ -139,37 +492,37 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <a href="#">
+      <a href="tisch.html">
         <div class="snapshot clearfix">
           <div class="pull-left">
             <p class="location">Tisch</p>
             <ul class="check">
-              <li>There are currently <span class="detail">xxx - xxx</span> people</li>
-              <li>People typically spend <span class="detail">yyy</span> minutes</li>
-              <li>Open until <span class="detail">zzz PM</span> today</li>
+              <li>Tisch is currently <span id = "tisch_percentageData" class="detail"></span> busy</li>
+               <li>People typically spend <span id = "tisch_timespentData" class="detail">40</span> minutes</li>
+               <li id = "tisch_closed">Closes at <span id = "tisch_timecloseData" class="detail"></span> today</li>
             </ul>
           </div>
           <figure class="pull-right">
-            <img src="/images/b4.png" alt="very busy" />
-            <figcaption class="text-center">Very Busy</figcaption>
+            <img id = "tisch_bat_image" class="bat_img" alt="busy-battery" />
+            <figcaption id = "tisch_figcaption"></figcaption>
           </figure>
         </div>
       </a>
     </div>
     <div class="col-md-6">
-      <a href="#">
+      <a href="eaton.html">
         <div class="snapshot clearfix">
           <div class="pull-left">
             <p class="location">Eaton Lab</p>
             <ul class="check">
-              <li>There are currently <span class="detail">xxx - xxx</span> people</li>
-              <li>People typically spend <span class="detail">yyy</span> minutes</li>
-              <li>Open until <span class="detail">zzz PM</span> today</li>
+              <li>Eaton is currently <span id = "eaton_percentageData" class="detail"></span> busy</li>
+               <li>People typically spend <span id = "eaton_timespentData" class="detail">40</span> minutes</li>
+               <li id = "eaton_closed">Closes at <span id = "eaton_timecloseData" class="detail"></span> today</li>
             </ul>
           </div>
           <figure class="pull-right">
-            <img src="/images/b1.png" alt="not busy" />
-            <figcaption class="text-center">Not Busy</figcaption>
+            <img id = "eaton_bat_image" class="bat_img" alt="busy-battery" />
+            <figcaption id = "eaton_figcaption"></figcaption>
           </figure>
         </div>
       </a>

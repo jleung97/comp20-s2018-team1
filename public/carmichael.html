@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Busy Monitor</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Make the website fully responsive -->
+  <link rel="stylesheet" href="stylesheets/responsive.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Phone Responsive Meta Tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Real time updates -->
+  <script>
+    TThF_percentage = {7:5,8:20,9:20,10:40,11:50,12:60,13:50,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    MW_percentage = {7:5,8:20,9:20,10:40,11:50,12:90,13:60,14:40,15:20,16:20,17:20,18:55,19:70,20:0}
+    Sa_percentage = {11:50,12:50,13:60,14:40,15:20,16:20,17:20,18:40,19:60,20:50,21:0}
+    Su_percentage = {8:5,9:20,10:30,11:40,12:50,13:50,14:40,15:20,16:20,17:20,18:50,19:70,20:0}
+    $( document ).ready(function() {
+      date = new Date();
+      var close = document.getElementById("timecloseData");
+      var isItClosed = document.getElementById("closed");
+      var figcaption = document.getElementById("figcaption");
+      var percentage_num = 0;
+      var percentage = document.getElementById("percentageData");
+      var bat_image = document.getElementById("bat_image");
+      var day = date.getDay();
+      var hour = date.getHours();
+      if (day >= 1 && day <= 5) {
+        close.innerHTML = "8 PM";
+        if(day == 1 || day == 3) {
+          if(MW_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+
+          }
+          else {
+            percentage_num = MW_percentage[hour]
+            percentage.innerHTML = MW_percentage[hour] + "%";
+          }
+        }
+        else {
+          if(TThF_percentage[hour] == undefined) {
+            percentage.innerHTML = "0%";
+            isItClosed.innerHTML = "This place is closed right now";
+          }
+          else {
+            percentage_num = TThF_percentage[hour]
+            percentage.innerHTML = TThF_percentage[hour] + "%";
+          }
+        }
+      }
+      else if (day == 0) {
+        close.innerHTML = "9 PM";
+        if(Su_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else {
+          percentage_num = Su_percentage[hour]
+          percentage.innerHTML = Su_percentage[hour] + "%";
+        }
+      }
+      else {
+        close.innerHTML = "8 PM"
+        if(Sa_percentage[hour] == undefined) {
+          percentage.innerHTML = "0%";
+          isItClosed.innerHTML = "This place is closed right now";
+        }
+        else{
+          percentage_num = Sa_percentage[hour]
+          percentage = Sa_percentage[hour] + "%";
+        }
+      }
+      if(percentage_num >= 0 && percentage_num <= 20) {
+          bat_image.setAttribute("src","images/b0.png");
+          figcaption.innerHTML = "Not Busy";
+      }
+      else if(percentage_num > 20 && percentage_num <= 40) {
+          bat_image.setAttribute("src","images/b1.png");
+          figcaption.innerHTML = "Kinda Busy";
+      }
+      else if(percentage_num > 40 && percentage_num <= 60) {
+          bat_image.setAttribute("src","images/b2.png");
+          figcaption.innerHTML = "Quite Busy";
+      }
+      else if(percentage_num > 60 && percentage_num <= 80) {
+          bat_image.setAttribute("src","images/b3.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+      else if(percentage_num > 80) {
+          bat_image.setAttribute("src","images/b4.png");
+          figcaption.innerHTML = "Very Busy";
+      }
+    });
+
+  </script>
+
+  <meta charset="UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Julius%20Sans%20One' rel='stylesheet'>
+  <link rel="stylesheet" href="/stylesheets/detail.css" />
+  <link rel="stylesheet" href="/stylesheets/base.css" />
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container text-center">
+      <div class="navbar-right dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Pick another location...
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <li><a href="dewick.html">Dewick</a></li>
+          <li><a href="tisch.html">Tisch Library</a></li>
+          <li><a href="eaton.html">Eaton Lab</a></li>
+        </ul>
+      </div>
+      <div id="navbar" class="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h1 id="name">Carmichael</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <span class="emph">Overview:</span><br>
+      <ul class="check">
+        <li>Carmichael is currently <span id = "percentageData" class="detail"></span> busy</li>
+        <li>People typically spend <span id = "timespentData" class="detail">40</span> minutes</li>
+        <li id = "closed">Closes at <span id = "timecloseData" class="detail"></span> today</li>
+      </ul>
+      <br>
+      <span class="emph">Hours of Operation:</span><br>
+      <ul class="check">
+      <li>Monday - Friday: 7:15 AM to 8 PM</li>
+      <li>Saturday: 11 AM to 8 PM</li>
+      <li>Sunday: 8 AM to 9 PM</li>
+    </div>
+    <div class="col-md-4">
+      <div id="chartContainer"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <figure>
+        <img id = "bat_image" class="bat_img" alt="busy-battery" />
+        <figcaption id = "figcaption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+<script type="text/javascript" src="/js/detail_carm.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+</html>

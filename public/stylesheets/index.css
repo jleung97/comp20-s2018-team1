@@ -3,6 +3,11 @@
   font-family: 'Julius Sans One';
   font-size: 42px;
   font-weight: bolder;
+  
+}
+
+#text {
+  text-align: center;
 }
 
 .snapshot {
