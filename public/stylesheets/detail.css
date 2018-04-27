@@ -49,6 +49,10 @@ figcaption {
   opacity: 1;
 }
 
-.meal {
+.category {
   font-weight: bold;  
+}
+
+.panel-body {
+  background-color: #c6d5e0;
 }
