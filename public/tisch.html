@@ -36,9 +36,9 @@
       var percentage = document.getElementById("percentageData");
       var bat_image = document.getElementById("bat_image");
       var day = date.getDay();
-      var hour = date.getHours();
+      var hour = 2; //date.getHours();
 
-      <!-- if Friday -->
+      //if Friday
       if(day == 5) {
         close.innerHTML = "9 PM";
 
@@ -47,7 +47,7 @@
                 close.innerHTML = "6 AM";
         }
 
-        <!-- overflow from weekday -->
+        //overflow from weekday
         if(hour >=0 && hour <= 1) {
                 close.innerHTML = "1 AM";
                 percentage_num = MTWTh_percentage[hour];
@@ -59,7 +59,7 @@
                         <!-- weekday late night -->
                         if(hour >= 1 && hour <=6) {
                                 percentage.innerHTML = "0%";
-                                isItClosed.innerHTML = "There is no population record for late night study";
+                                isItClosed.innerHTML = "Late night study: Closes at " + close.innerHTML;
                         }
                         else {
                                 percentage.innerHTML = "0%";
@@ -73,7 +73,7 @@
         }
       }
 
-      <!-- if weekday -->
+      //if weekday
       if (day >= 1 && day <= 4) {
               close.innerHTML = "1 AM";
 
@@ -94,7 +94,7 @@
                               <!-- late night -->
                               if(hour >= 1 && hour <= 6) {
                                       percentage.innerHTML = "0%";
-                                      isItClosed.innerHTML = "There is no population record for late night study";
+                                      isItClosed.innerHTML = "Late night study: Closes at " + close.innerHTML;
                               }
                               else {
                                       percentage.innerHTML = "0%";
@@ -108,7 +108,7 @@
               }
       }
 
-      <!-- if Sunday -->
+      //if Sunday
       else if (day == 0) {
         close.innerHTML = "1 AM";
 
@@ -122,7 +122,7 @@
                 <!-- late night -->
                 if(hour >= 1 && hour <= 6) {
                         percentage.innerHTML = "0%";
-                        isItClosed.innerHTML = "There is no population record for late night study";
+                        isItClosed.innerHTML = "Late night study: Closes at " + close.innerHTML;
                 }
                 else {
                         percentage.innerHTML = "0%";
@@ -135,7 +135,7 @@
         }
       }
 
-      <!-- if Saturday -->
+      //if Saturday
       else {
         close.innerHTML = "12 AM";
 
@@ -146,10 +146,10 @@
 
         if(Sa_percentage[hour] == undefined) {
 
-                <!-- late night -->
+                //late night
                 if (hour >= 0 && hour <= 6) {
                         percentage.innerHTML = "0%";
-                        isItClosed.innerHTML = "There is no population record for late night study";
+                        isItClosed.innerHTML = "Late night study: Closes at " + close.innerHTML;
                 }
                 else {
                         percentage.innerHTML = "0%";
