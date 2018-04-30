@@ -1,17 +1,27 @@
 @media only screen and (max-width : 991px)  {
   #bat_image {
     position: absolute;
-    top: -200px;
+    top: -50px;
     left: 65%;
   }
   #figcaption {
     position: absolute;
-    top: -50px;
+    top: 100px;
     left: 65%;
   }
 }
 
+.dropdown-menu {
+  position: absolute;
+  left:35vw;
+}
+
 @media only screen and (max-width : 525px)  {
+
+  .dropdown-menu {
+    position: absolute;
+    left:30vw;
+  }
 
   #chartContainer {
     margin-top: 200px;
