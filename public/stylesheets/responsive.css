@@ -11,7 +11,17 @@
   }
 }
 
+.dropdown-menu {
+  position: absolute;
+  left:35vw;
+}
+
 @media only screen and (max-width : 525px)  {
+
+  .dropdown-menu {
+    position: absolute;
+    left:30vw;
+  }
 
   #chartContainer {
     margin-top: 200px;
