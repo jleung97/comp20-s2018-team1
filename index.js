@@ -202,8 +202,7 @@ express()
                                           res.send(500);
                                   }
                                   else {
-                                          res.send("<html><head><h2>Thanks for your submission for "
-                                          + toInsert.location + "!</h2></head></html>");
+                                          res.send("<html><head><h2>Thanks for your submission!</h2></head></html>");
                                   }
                           });
                   }
