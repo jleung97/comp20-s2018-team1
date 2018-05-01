@@ -7,7 +7,12 @@ const PORT = process.env.PORT || 5000
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/semesterproj';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
-        db = databaseConnection;
+        if (error) {
+                console.log("Error: " + error);
+        }
+        else {
+                db = databaseConnection;
+        }
 });
 
 express()
@@ -35,7 +40,7 @@ express()
                   }
           });
   })
- 
+
 
   .post("/submit", function(req, res) {
           res.setHeader("Access-Control-Allow-Origin", "*", false);
