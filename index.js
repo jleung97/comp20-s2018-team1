@@ -38,8 +38,6 @@ express()
   .post("/submit", function(req, res) {
           res.setHeader("Access-Control-Allow-Origin", "*", false);
 
-          console.log("submitting " + req.body);
-
           if(req.body.location != null) {
                   var loc = req.body.location;
           }
@@ -204,7 +202,8 @@ express()
                                           res.send(500);
                                   }
                                   else {
-                                          res.send("<html><head><h2>Thanks for your submission!</h2></head></html>");
+                                          res.send("<html><head><h2>Thanks for your submission for "
+                                          + toInsert.location + "!</h2></head></html>");
                                   }
                           });
                   }
