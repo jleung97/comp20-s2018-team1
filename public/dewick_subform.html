@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="stylesheets/subform.css" />
+        <title>Submission Form</title>
+</head>
+
+<body>
+        <p id="date"></p>
+        <form action="/submit" method="post">
+                <input type="radio" name="location" value="Dewick" checked> Dewick<br>
+                10:00AM:
+                <input type="text" name="tenAM"><br>
+                11:00AM:
+                <input type="text" name="elevenAM"><br>
+                12:00PM:
+                <input type="text" name="twelvePM"><br>
+                1:00PM:
+                <input type="text" name="onePM"><br>
+                2:00PM:
+                <input type="text" name="twoPM"><br>
+                3:00PM:
+                <input type="text" name="threePM"><br>
+                4:00PM:
+                <input type="text" name="fourPM"><br>
+                5:00PM:
+                <input type="text" name="fivePM"><br>
+                6:00PM:
+                <input type="text" name="sixPM"><br>
+                7:00PM:
+                <input type="text" name="sevenPM"><br>
+                8:00PM:
+                <input type="text" name="eightPM"><br>
+                9:00PM:
+                <input type="text" name="ninePM"><br>
+                10:00PM:
+                <input type="text" name="tenPM"><br>
+                11:00PM:
+                <input type="text" name="elevenPM"><br>
+                12:00AM:
+                <input type="text" name="twelveAM"><br>
+                1:00AM:
+                <input type="text" name="oneAM"><br>
+                <br>
+                <input type="submit" id="submit" value="SUBMIT">
+
+        </form>
+
+        <script>
+                document.getElementById("date").innerHTML = "Dewick Submission for: " + Date();
+        </script>
+</body>
+</html>
