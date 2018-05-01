@@ -19,6 +19,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/times', function(req, res) {
 
+/*
           db.collection('table', function(error, coll) {
 
                   if (error) {
@@ -34,6 +35,7 @@ express()
                   }
           });
   })
+  */
 
   .post("/submit", function(req, res) {
           res.setHeader("Access-Control-Allow-Origin", "*", false);
