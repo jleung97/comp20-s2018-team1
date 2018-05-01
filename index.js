@@ -2,17 +2,12 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser');
 const validator = require('validator');
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
-var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/semesterproj';
+var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/busymonitor';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
-        if (error) {
-                console.log("Error: " + error);
-        }
-        else {
-                db = databaseConnection;
-        }
+        db = databaseConnection;
 });
 
 express()
